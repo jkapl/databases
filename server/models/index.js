@@ -1,5 +1,6 @@
 var db = require('../db');
 
+//interact with database to retrieve messages (query)
 module.exports = {
   messages: {
     get: function () {}, // a function which produces all the messages
