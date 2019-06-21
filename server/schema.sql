@@ -5,13 +5,13 @@ CREATE DATABASE IF NOT EXISTS chat;
 USE chat;
 
 CREATE TABLE users (
-  user_id INT NOT NULL,
+  user_id INT NOT NULL AUTO_INCREMENT,
   username VARCHAR(200) NOT NULL,
   PRIMARY KEY (user_id)
 );
 
 CREATE TABLE rooms (
-  room_id INT NOT NULL,
+  room_id INT NOT NULL  AUTO_INCREMENT,
   room_name VARCHAR(200) NOT NULL,
   PRIMARY KEY (room_id)
 );
@@ -20,7 +20,7 @@ CREATE TABLE messages (
   /* Describe your table here.*/
   room_id INT NOT NULL,
   user_id INT NOT NULL,
-  msg_id INT NOT NULL,
+  msg_id INT NOT NULL  AUTO_INCREMENT,
   msg VARCHAR(200) NOT NULL,
   created_at DATETIME NOT NULL,
   FOREIGN KEY (room_id) REFERENCES rooms (room_id) ON DELETE CASCADE,

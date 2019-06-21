@@ -6,11 +6,27 @@ module.exports = {
     //get: function (req, res) {}, // a function which handles a get request for all messages
     get: (req, res) => {
       console.log('hello');
+      models.messages.get((err, results) => {
+        // console.log('inside get')
+        if (err) {
+          console.log(err);
+        } else {
+          res.json(results);
+        }
+      });
       res.sendStatus(402);
       // models.messages.get(get a message from the database)
     },
     post: function (req, res) {
-      res.sendStatus(200);
+      var params = req.body.username;
+      console.log(req.body.username);
+      models.messages.post(params, (err, results) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.send(results);
+        }
+      });
     } // a function which handles posting a message to the database
   },
 
